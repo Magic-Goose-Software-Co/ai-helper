@@ -22,7 +22,7 @@ import ai
 
 openai = ai.Provider("your-api-key")
 
-model = ai.AI(provider, "You are a helpful AI assistant.")
+model = ai.AI(openai, "You are a helpful AI assistant.")
 
 while True:
     prompt = input("You: ")
