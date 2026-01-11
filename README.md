@@ -1,7 +1,7 @@
 
 # ai-helper
 
-A small Python helper library for working with artificial intelligence providers using the OpenAI schema
+A small Python helper library for working with artificial intelligence providers that use the OpenAI schema.
 
 ---
 
@@ -32,7 +32,7 @@ while True:
 ---
 
 ### Using a different provider
-If you want to use a different provider (e.g. GitHub models), pass it as a string to ai.Provider.
+If you want to use a provider other than OpenAI (e.g. GitHub models), pass it as a string to ai.Provider.
 
 ```python
 github = ai.Provider("your-api-key", baseUrl="https://models.github.ai/inference")
