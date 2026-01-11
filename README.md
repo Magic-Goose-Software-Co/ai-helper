@@ -16,7 +16,7 @@ pip install git+https://git.jackhuey.com/ai-helper.git
 
 ## Usage
 
-### Basic usage:
+### Basic usage
 ```python
 import ai
 
@@ -37,6 +37,8 @@ If you want to use a provider other than OpenAI (e.g. GitHub models), pass it as
 ```python
 github = ai.Provider("your-api-key", baseUrl="https://models.github.ai/inference")
 ```
+---
+
 ### Tool Calls
 To enable tool calls, pass a list of tool definitions to ai.AI.
 If a tool takes no parameters, you may pass an empty list.
