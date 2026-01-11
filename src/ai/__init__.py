@@ -7,11 +7,12 @@ class Provider:
         self.baseUrl = baseUrl
 
 class AI:
-    def __init__(self, provider, systemPrompt, tools=[]):
+    def __init__(self, provider, model, systemPrompt, tools=[]):
         if provider.baseUrl:
             self.client = OpenAI(api_key=provider.apiKey, base_url=provider.baseUrl)
         else:
             self.client = OpenAI(api_key=provider.apiKey)
+        self.model = model
         self.history = [{"role": "system", "content": systemPrompt}]
         self.tools = []
 
@@ -47,7 +48,8 @@ class AI:
 
     def prompt(self, prompt):
         self.history.append({"role": "user", "content": prompt})
-        response = self.client.chat.completions.create(model="gpt-4.1-mini", messages=self.history, tools=self.tools).choices[0].message
+        response = self.client.chat.completions.create(model=self.model, 
+messages=self.history, tools=self.tools).choices[0].message
         if response.tool_calls:
             self.history.append({"role": "assistant", "tool_calls": [tc.model_dump() for tc in response.tool_calls], "content": None})
             return [self.ToolCall(self, toolCall.function.name, toolCall.function.arguments, toolCall.id) for toolCall in response.tool_calls]

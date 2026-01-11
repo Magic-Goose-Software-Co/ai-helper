@@ -22,7 +22,7 @@ import ai
 
 openai = ai.Provider("your-api-key")
 
-model = ai.AI(openai, "You are a helpful AI assistant.")
+model = ai.AI(openai, "gpt-4.1-mini", "You are a helpful AI assistant.")
 
 while True:
     prompt = input("You: ")
@@ -44,7 +44,7 @@ To enable tool calls, pass a list of tool definitions to ai.AI.
 If a tool takes no parameters, you may pass an empty list.
 
 ```python
-model = ai.AI(provider, "You are a helpful AI assistant.",
+model = ai.AI(provider, "gpt-4.1-mini", "You are a helpful AI assistant.",
     {
         "name": "web",
         "description": "Browse the web.",
