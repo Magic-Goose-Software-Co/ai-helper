@@ -9,7 +9,7 @@ A small Python helper library for working with artificial intelligence providers
 ## Installation
 
 ```bash
-pip install git+https://git.jackhuey.com/ai-helper.git
+pip install git+https://github.com/magic-goose-software-co/ai-helper.git
 ```
 
 ---
