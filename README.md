@@ -47,9 +47,8 @@ To enable tool calls, pass a list of tool definitions to ai.AI.
 If a tool takes no parameters, you may pass an empty list.
 
 ```python
-model = ai.AI(provider, "gpt-4.1-mini", "You are a helpful AI assistant.",
-    {
-        "name": "web",
+model = ai.AI(provider, "gpt-4.1-mini", "You are a helpful AI assistant.", [
+    {"name": "web",
         "description": "Browse the web.",
         "parameters": [
             {
@@ -60,6 +59,7 @@ model = ai.AI(provider, "gpt-4.1-mini", "You are a helpful AI assistant.",
             }
         ]
     }
+]
 )
 ```
 If the model uses a tool call, ai.AI.prompt will return a list of instances of ai.AI.ToolCall.  
